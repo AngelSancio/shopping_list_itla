@@ -48,6 +48,7 @@ bool Menu::validate(int option)
 
 void Menu::routeAction(int option)
 {
+
 	switch(option)
 	{
 	case 1:
@@ -67,20 +68,57 @@ void Menu::routeAction(int option)
 
 void Menu::listItems()
 {
+	Element* element;
+	while(Element != NULL)
+	{
+
+		cout <<endl << element->index <<"Product: " <<  element->_name <<"\t" <<"Quantity: " << element->quantity << endl;
+		element = element->_next;
+
+	}
 	//TODO: Implement this
-	cout << "Implement  Menu::listItems" << endl;
+	//cout << "Implement  Menu::listItems" << endl;
 }
 
 void Menu::addItems()
 {
+	int option;
+	Element* element;
+	system("cls");
+
+	cout <<" Add"<<endl << endl;
+	cout <<"1 - Name of the Product: ";
+	cin >> element->_name;
+	cout <<endl<<"2 - Quantity: ";
+	cin >> element->quantity;
+	List::add(element->_name,element->quantity);
+
+	cout <<endl<< "Product "<<element->_name <<" added"<<endl;
+	Menu::routeAction(option);
+	cout << endl;
+
+
 	//TODO: Implement this
-	cout << "Implement  Menu::addItems" << endl;
+	//cout << "Implement  Menu::addItems" << endl;
 }
 
 void Menu::removeItems()
 {
+	int option;
+	Element* element;
+	int index;
+	system("cls");
+	cout << endl << " Delete Products "<< endl;
+	Menu::listItems();
+	cout <<endl<< "Choose the name of the product to delete => ";
+	cin >> index;
+	List::remove(index);
+	cout <<endl<< "Product "<< index<<" Deleted"<<endl;
+	Menu::routeAction(option);
+	cout << endl;
+
 	//TODO: Implement this
-	cout << "Implement  Menu::removeItems" << endl;
+	//cout << "Implement  Menu::removeItems" << endl;
 }
 
 void Menu::show()
